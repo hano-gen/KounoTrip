@@ -1,0 +1,20 @@
+{
+  "name": "KounoTrip - めぐる、あつめる、豊岡の旅",
+  "short_name": "KounoTrip",
+  "icons": [
+    {
+      "src": "./images/icons/KounoTrip-192×192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/icons/KounoTrip-512×512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F0E6",
+  "theme_color": "#D64545"
+}

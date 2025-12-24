@@ -1,0 +1,62 @@
+[
+    {
+        "slug": "castle-town-walk",
+        "title": "出石城下町の奥深くまで",
+        "distance_km": 2.0,
+        "duration_min": 180,
+        "stamps_count": 7,
+        "difficulty": 4,
+        "thumbnails": [
+            "./images/joseki.png",
+            "./images/eirakukan.png",
+            "./images/shinkoro.jpg"
+        ],
+        "description": "但馬の小京都・出石をめぐる定番コース。歴史ある建物と美しい街並みを楽しめます。",
+        "poi_ids": ["eirakukan", "karoyashiki", "izushi-castle", "mizunouta-koen", "kato-hiroyuki", "meijikan", "shinkoro"]
+    },
+    {
+        "slug": "kinosaki-hot-spring",
+        "title": "城崎めぐり",
+        "distance_km": 1.8,
+        "duration_min": 90,
+        "stamps_count": 4,
+        "difficulty": 1,
+        "thumbnails": [
+            "./images/onsengai.jpg",
+            "./images/bungeikan.jpg",
+            "./images/kinosakionsen.jpg"
+        ],
+        "description": "7つの外湯で有名な城崎温泉を巡るリラックスコース。",
+        "poi_ids": ["kinosaki-onsen", "bungeikan", "gokurakuji", "marineworld"]
+    },
+    {
+        "slug": "marine-adventure",
+        "title": "日本海の絶景と歴史",
+        "distance_km": 12.6,
+        "duration_min": 180,
+        "stamps_count": 5,
+        "difficulty": 5,
+        "thumbnails": [
+            "./images/takenokaigan.jpg",
+            "./images/hiyoriyamakaigan.jpg",
+            "./images/keinohama.jpg"
+        ],
+        "description": "日本海の絶景と海の生き物に出会える冒険コース。城崎と竹野の移動には車をおすすめします。",
+        "poi_ids": ["marineworld", "hiyoriyamakaigan", "goyotikan", "kitamaekan", "takenokaigan"]
+    },
+    {
+        "slug": "nature-adventure",
+        "title": "自然と温泉で過ごす休日",
+        "distance_km": 4.2,
+        "duration_min": 180,
+        "stamps_count": 3,
+        "difficulty": 4,
+        "thumbnails": [
+            "./images/hanakoen.jpg",
+            "./images/mongoru.jpg",
+            ".images/tantan-onsen.jpg"
+        ],
+        "description": "京都府との境にある兵庫県豊岡市の「日本の原風景」が広がる但東エリア。京都北部（天橋立、伊根など）に向かう途中、帰りの途中の立ち寄りにおすすめのコースです。",
+        "poi_ids": ["tanto-hanakoen","mongoru","tantan-onsen"]
+    }
+]
