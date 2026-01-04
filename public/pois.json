@@ -1,25 +1,5 @@
 [
   {
-    "id": "kindaitoyooka",
-    "name": "近畿大学附属豊岡高等学校",
-    "lat": 35.53744392566268,
-    "lng": 134.8066775231155,
-    "radius_m": 100000000,
-    "description": "豊岡市にある私立高校。多彩な学びと活動が特徴。",
-    "detailedDescription": "豊岡市にある私立高校で、近畿大学の附属校として知られています。多彩な学びと活動が特徴で、学業だけでなくスポーツや文化活動にも力を入れています。地域との連携も深く、地元のイベントやボランティア活動にも積極的に参加しています。学生たちは充実した学校生活を送りながら、将来に向けての準備を進めています。",
-    "category": "nature",
-    "region": "toyooka",
-    "points": 3,
-    "accessInfo": "全但バス「市民グランド前」下車。徒歩3分",
-    "openingHours": "9：00～17:00",
-    "highlights": ["学校", "スポーツ", "田舎力甲子園"],
-    "address": "兵庫県豊岡市戸牧100",
-    "mapLink": "https://maps.app.goo.gl/KmkfRejp67QAWhFu8",
-    "stampimageURL": "./images/kindai-toyooka_stamp.jpg",
-    "imageURL": "./images/kindai-toyooka.jpg",
-    "audio":"./audio/guides/josek.mp3"
-  },
-  {
     "id": "miizushijinnja",
     "name": "御出石神社",
     "lat": 35.448962593511,
