@@ -67,23 +67,27 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // それ以外（静的アセット）は cache-first
+  // それ以外（静的アセット）も network-first（オンラインファースト）
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
-      return fetch(event.request).then(res => {
-        // 失敗したり不正なレスポンスはそのまま返す
-        if (!res || res.status !== 200 || res.type === 'opaque') return res;
-        const copy = res.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-        return res;
-      }).catch(() => {
-        // もし何も見つからなければナビゲーションなら index.html へフォールバック
-        if (event.request.destination === 'document' || event.request.mode === 'navigate') {
-          return caches.match('/index.html');
+    fetch(event.request)
+      .then(res => {
+        // 成功したレスポンスをキャッシュに保存
+        if (res && res.status === 200 && res.type !== 'opaque') {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
         }
-        return undefined;
-      });
-    })
+        return res;
+      })
+      .catch(() => {
+        // ネットワーク失敗時はキャッシュから返す
+        return caches.match(event.request).then(cached => {
+          if (cached) return cached;
+          // ナビゲーションなら index.html へフォールバック
+          if (event.request.destination === 'document' || event.request.mode === 'navigate') {
+            return caches.match('/index.html');
+          }
+          return undefined;
+        });
+      })
   );
 });
