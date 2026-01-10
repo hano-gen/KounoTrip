@@ -1622,21 +1622,21 @@ ToyookaStampApp.prototype.switchTab = function(tab, { suppressHash = false } = {
     if (!suppressHash) this.updateHash();
 };
 
+// ====== グローバル関数を先に定義（appが準備できる前でもエラーを防ぐ） ======
+window.switchTab = (tab) => window.app && window.app.switchTab(tab);
+window.selectMode = (mode) => window.app && window.app.selectMode(mode);
+window.showModeSelect = () => window.app && window.app.showModeSelect();
+window.continueCourse = () => window.app && window.app.continueCourse();
+window.startCourse = (slug) => window.app && window.app.startCourse(slug);
+window.closeCourseDetail = () => window.app && window.app.closeCourseDetail();
+window.closeSpotDetail = () => window.app && window.app.closeSpotDetail();
+
 // ====== アプリ起動はデータ読み込み完了後に行う (fetch 版の正しい順序) ======
 appInitPromise
   .then(() => {
     // データが揃ってからアプリを作成
     const app = new ToyookaStampApp();
     window.app = app;
-
-    // 安全ラッパの登録（app が存在しなければ呼ばれない）
-    window.switchTab = (tab) => window.app && window.app.switchTab(tab);
-    window.selectMode = (mode) => window.app && window.app.selectMode(mode);
-    window.showModeSelect = () => window.app && window.app.showModeSelect();
-    window.continueCourse = () => window.app && window.app.continueCourse();
-    window.startCourse = (slug) => window.app && window.app.startCourse(slug);
-    window.closeCourseDetail = () => window.app && window.app.closeCourseDetail();
-    window.closeSpotDetail = () => window.app && window.app.closeSpotDetail();
 
   })
   .catch(err => {
