@@ -1070,6 +1070,109 @@
             cursor: default;
         }
 
+        /* ===== フローティング音声プレーヤーバー ===== */
+        .audio-player-bar {
+            position: fixed;
+            bottom: 66px;          /* タブバーの上 */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 448px;
+            background: #1a1a1a;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.55rem 0.8rem;
+            z-index: 190;
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.35);
+            border-top: 2px solid var(--brand-primary);
+            animation: slideUpPlayer 0.25s ease;
+        }
+
+        @keyframes slideUpPlayer {
+            from { transform: translateX(-50%) translateY(100%); opacity: 0; }
+            to   { transform: translateX(-50%) translateY(0);    opacity: 1; }
+        }
+
+        .audio-player-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .audio-player-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+
+        .audio-play-pause-btn {
+            background: var(--brand-primary);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: opacity 0.15s;
+        }
+
+        .audio-play-pause-btn:active {
+            opacity: 0.75;
+        }
+
+        .audio-player-progress-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.2rem;
+            flex: 1.2;
+            min-width: 0;
+        }
+
+        .audio-player-progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .audio-player-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--brand-primary);
+            border-radius: 4px;
+            transition: width 0.4s linear;
+        }
+
+        .audio-player-time {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.65);
+        }
+
+        .audio-player-close {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.55);
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0.2rem 0.3rem;
+            flex-shrink: 0;
+            transition: color 0.15s;
+        }
+
+        .audio-player-close:hover {
+            color: #fff;
+        }
+
         .stamp-stand {
             display: flex;
             flex-direction: column;

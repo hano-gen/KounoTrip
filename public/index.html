@@ -442,6 +442,24 @@
                 </div>
             </div>
 
+            <!-- Audio Player Bar -->
+            <div class="audio-player-bar" id="audio-player-bar" style="display:none;">
+                <div class="audio-player-info">
+                    <span class="audio-player-name" id="audio-player-name">ガイド音声</span>
+                </div>
+                <button class="audio-play-pause-btn" id="audio-play-pause-btn" onclick="app.toggleAudio()">
+                    <svg id="audio-icon-play" fill="currentColor" viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="audio-icon-pause" fill="currentColor" viewBox="0 0 24 24" width="22" height="22" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="audio-player-progress-wrap">
+                    <div class="audio-player-progress-bar">
+                        <div class="audio-player-progress-fill" id="audio-player-progress-fill"></div>
+                    </div>
+                    <span class="audio-player-time" id="audio-player-time">0:00</span>
+                </div>
+                <button class="audio-player-close" onclick="app.stopAudio()">✕</button>
+            </div>
+
             <!-- Bottom Tab Bar -->
             <div class="tabbar" id="tabbar">
                 <button class="tab" data-tab="map" data-active="false" onclick="switchTab('map')">

@@ -890,6 +890,98 @@ class ToyookaStampApp {
             console.warn('playSpotAudio is not defined on app');
         }
     }
+
+    // 音声を再生する（同じスポットなら一時停止/再開、別スポットなら切り替え）
+    playSpotAudio(spotId) {
+        const spot = window.POIS.find(s => s.id === spotId);
+        if (!spot) return;
+
+        const audioUrl = spot.audioURL || spot.audio;
+        if (!audioUrl) { alert('音声ファイルが見つかりません'); return; }
+
+        // 同じ音声が再生中なら一時停止/再開
+        if (this._currentAudio && this._currentAudioId === spotId) {
+            this.toggleAudio();
+            return;
+        }
+
+        // 別の音声が再生中なら停止
+        if (this._currentAudio) {
+            this._currentAudio.pause();
+            this._currentAudio.src = '';
+            this._currentAudio = null;
+        }
+
+        const audio = new Audio(audioUrl);
+        this._currentAudio = audio;
+        this._currentAudioId = spotId;
+
+        // プレーヤーバーを表示
+        const bar = document.getElementById('audio-player-bar');
+        const nameEl = document.getElementById('audio-player-name');
+        if (bar) bar.style.display = 'flex';
+        if (nameEl) nameEl.textContent = spot.name || 'ガイド音声';
+
+        // 進行バー・時刻の更新
+        audio.addEventListener('timeupdate', () => {
+            const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+            const fill = document.getElementById('audio-player-progress-fill');
+            if (fill) fill.style.width = pct + '%';
+            const timeEl = document.getElementById('audio-player-time');
+            if (timeEl) {
+                const m = Math.floor(audio.currentTime / 60);
+                const s = String(Math.floor(audio.currentTime % 60)).padStart(2, '0');
+                timeEl.textContent = `${m}:${s}`;
+            }
+        });
+
+        // 再生終了
+        audio.addEventListener('ended', () => {
+            this._updateAudioBtn(true);
+            const fill = document.getElementById('audio-player-progress-fill');
+            if (fill) fill.style.width = '0%';
+            const timeEl = document.getElementById('audio-player-time');
+            if (timeEl) timeEl.textContent = '0:00';
+        });
+
+        audio.play()
+            .then(() => this._updateAudioBtn(false))
+            .catch(err => {
+                console.error('音声再生エラー:', err);
+                alert('音声を再生できませんでした');
+            });
+    }
+
+    // 再生/一時停止 切り替え
+    toggleAudio() {
+        if (!this._currentAudio) return;
+        if (this._currentAudio.paused) {
+            this._currentAudio.play().then(() => this._updateAudioBtn(false));
+        } else {
+            this._currentAudio.pause();
+            this._updateAudioBtn(true);
+        }
+    }
+
+    // 音声停止 & バーを隠す
+    stopAudio() {
+        if (this._currentAudio) {
+            this._currentAudio.pause();
+            this._currentAudio.src = '';
+            this._currentAudio = null;
+            this._currentAudioId = null;
+        }
+        const bar = document.getElementById('audio-player-bar');
+        if (bar) bar.style.display = 'none';
+    }
+
+    // 再生ボタンアイコンの切り替え（isPaused=true → ▶ 表示）
+    _updateAudioBtn(isPaused) {
+        const playIcon  = document.getElementById('audio-icon-play');
+        const pauseIcon = document.getElementById('audio-icon-pause');
+        if (playIcon)  playIcon.style.display  = isPaused ? 'block' : 'none';
+        if (pauseIcon) pauseIcon.style.display = isPaused ? 'none'  : 'block';
+    }
     
     getCategoryIcon(category) {
         const icons = {

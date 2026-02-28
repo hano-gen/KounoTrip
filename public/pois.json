@@ -15,7 +15,7 @@
     "highlights": ["神社", "静か", "地元民に親しまれる"],
     "address": "兵庫県豊岡市出石町桐野986",
     "mapLink": "https://maps.app.goo.gl/ZGkkiBdKbZwpSFpA8",
-    "stampimageURL": "./images/hanakoen.png",
+    "stampimageURL": "./images/miizushi_stamp.png",
     "imageURL": "./images/kikujii.HEIC",
     "audio":"./audio/guides/miizushi.mp3"
   },
