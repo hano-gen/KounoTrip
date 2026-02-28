@@ -952,6 +952,12 @@ class ToyookaStampApp {
             });
     }
 
+    // 10秒巻き戻し
+    rewindAudio() {
+        if (!this._currentAudio) return;
+        this._currentAudio.currentTime = Math.max(0, this._currentAudio.currentTime - 10);
+    }
+
     // 再生/一時停止 切り替え
     toggleAudio() {
         if (!this._currentAudio) return;
@@ -1047,25 +1053,12 @@ class ToyookaStampApp {
         // --- 重要: 自動再生規制対策 ---
         // ユーザーがクリックしたコールスタック内で audio.play() を試みると
         // ブラウザによる自動再生ブロックを回避しやすくなります。
-        const audioPath = stamp.audio || stamp.audioURL || null;
-        if (audioPath) {
+        if (stamp.audio || stamp.audioURL) {
             try {
-                // 音声を即座にロードして再生を試みる（ユーザー操作と同じハンドラ内）
-                const audio = new Audio(audioPath);
-                audio.preload = 'auto';
-                // 保存しておけばモーダルや停止操作で制御できます
-                this._currentPlayingAudio = audio;
-
-                // play() は Promise を返すので失敗をキャッチしておく
-                audio.play().catch(err => {
-                    // 再生がブロックされたりエラーが発生した場合はログ出力してフォールバックは行わない
-                    console.warn('音声の自動再生に失敗しました:', err);
-                    // 再生できなかった場合は参照をクリアしておく（再生ボタンで別途再生可能）
-                    this._currentPlayingAudio = null;
-                });
+                // playSpotAudio を使うことで再生バーも表示する
+                this.playSpotAudio(stamp.id);
             } catch (err) {
                 console.warn('音声再生開始でエラー:', err);
-                this._currentPlayingAudio = null;
             }
         }
 

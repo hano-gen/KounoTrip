@@ -6,6 +6,7 @@
             --warning: #f59e0b;
             --error: #ef4444;
             --info: #3b82f6;
+            --tabbar-height: 66px;
         }
 
         * {
@@ -19,7 +20,7 @@
             background: var(--brand-secondary);
             color: var(--brand-dark);
             min-height: 100vh;
-            padding-bottom: 80px;
+            padding-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom, 0px) + 14px);
             transition: all 0.3s ease;
         }
 
@@ -1073,7 +1074,7 @@
         /* ===== フローティング音声プレーヤーバー ===== */
         .audio-player-bar {
             position: fixed;
-            bottom: 66px;          /* タブバーの上 */
+            bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom, 0px));
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
@@ -1107,6 +1108,26 @@
             overflow: hidden;
             text-overflow: ellipsis;
             display: block;
+        }
+
+        .audio-rewind-btn {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: opacity 0.15s, background 0.15s;
+        }
+
+        .audio-rewind-btn:active {
+            opacity: 0.75;
+            background: rgba(255,255,255,0.25);
         }
 
         .audio-play-pause-btn {
@@ -1719,6 +1740,8 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 448px;
+            height: calc(var(--tabbar-height) + env(safe-area-inset-bottom, 0px));
+            padding-bottom: env(safe-area-inset-bottom, 0px);
             background: white;
             border-top: 1px solid #e5e7eb;
             display: grid;
