@@ -872,6 +872,47 @@ class ToyookaStampApp {
         }).join('');
     }
 
+    // スタンプ獲得モーダルを表示する（音声がある場合のみ再生ボタンを表示）
+    showStampGuideModalAndPlay(stamp) {
+        return new Promise((resolve) => {
+            const modal = document.getElementById('stamp-guide-modal');
+            if (!modal) { resolve(); return; }
+
+            // スポット情報をモーダルに反映
+            const iconEl = document.getElementById('stamp-modal-icon');
+            const titleEl = document.getElementById('stamp-modal-title');
+            const descEl = document.getElementById('stamp-modal-desc');
+            if (iconEl) iconEl.textContent = this.getCategoryIcon(stamp.category);
+            if (titleEl) titleEl.textContent = stamp.name;
+            if (descEl) descEl.textContent = stamp.description || '';
+
+            // 音声がある場合のみ「音声を再生」ボタンを表示
+            const audioBtn = document.getElementById('stamp-modal-play-audio');
+            if (audioBtn) {
+                this._stampModalSpotId = stamp.id;
+                if (stamp.audio || stamp.audioURL) {
+                    audioBtn.classList.remove('hidden');
+                } else {
+                    audioBtn.classList.add('hidden');
+                }
+            }
+
+            // モーダルを表示
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+
+            // 閉じるボタン
+            const closeBtn = document.getElementById('stamp-modal-close');
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+                if (closeBtn) closeBtn.removeEventListener('click', closeModal);
+                resolve();
+            };
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        });
+    }
+
     // ボタンの inline onclick から安全に呼び出すためのラッパー
     // event を受け取り親要素への伝播を止めた上で playSpotAudio を呼ぶ
     playSpotAudioHandler(e, spotId) {
@@ -1146,6 +1187,14 @@ class ToyookaStampApp {
         document.getElementById('spot-modal-access').textContent = spot.accessInfo;
         document.getElementById('spot-modal-hours').textContent = spot.openingHours;
         document.getElementById('spot-modal-points').textContent = `${spot.points}ポイント`;
+
+        // Show/hide audio badge
+        const audioBadge = document.getElementById('spot-modal-audio');
+        if (spot.audio) {
+            audioBadge.classList.remove('hidden');
+        } else {
+            audioBadge.classList.add('hidden');
+        }
 
         // Update highlights
         const highlightsContainer = document.getElementById('spot-modal-highlights');

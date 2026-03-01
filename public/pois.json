@@ -5,8 +5,8 @@
     "lat": 35.448962593511,
     "lng": 134.89743715412456,
     "radius_m": 200,
-    "description": "広い境内を有する神社30。地元民に親しまれるスポット。",
-    "detailedDescription": "出石の中心部の喧騒から離れた静かな神社。もとは、桐野と水石の間の地にあったが、洪水のため、現在地へ遷ったとされている。",
+    "description": "広い境内を有する神社。地元民に親しまれるスポット。",
+    "detailedDescription": "出石の中心部の喧騒から離れた静かな神社。もとは、桐野と水石の間の地にあったが、洪水のため、現在地へ遷ったとされている。参道の空気が神秘的。",
     "category": "nature",
     "region": "izushi",
     "points": 3,
@@ -16,8 +16,7 @@
     "address": "兵庫県豊岡市出石町桐野986",
     "mapLink": "https://maps.app.goo.gl/ZGkkiBdKbZwpSFpA8",
     "stampimageURL": "./images/miizushi_stamp.png",
-    "imageURL": "./images/kikujii.HEIC",
-    "audio":"./audio/guides/miizushi.mp3"
+    "imageURL": "./images/miizushi.HEIC"
   },
   {
     "id": "kikunoojiityan",
@@ -36,7 +35,7 @@
     "address": "兵庫県豊岡市山王町１０−１４",
     "stampimageURL": "./images/hanakoen.png",
     "imageURL": "./images/kikujii.HEIC",
-    "audio":"./audio/guides/joseki.mp3"
+    "audio":"./audio/guides/kikujii.mp3"
   },
   {
     "id": "izushi-castle", 
@@ -55,8 +54,7 @@
     "address": "〒668-0214 兵庫県豊岡市出石町内町",
     "mapLink": "https://maps.app.goo.gl/rjvib5be2Y8pm2D9A",
     "stampimageURL": "./images/joseki_stamp.png",
-    "imageURL": "./images/joseki.jpg",
-    "audio":"./audio/guides/joseki.mp3"
+    "imageURL": "./images/joseki.jpg"
   },
   {
     "id": "shinkoro",
@@ -75,8 +73,7 @@
     "address": "〒668-0214 兵庫県豊岡市出石町内町",
     "mapLink": "https://maps.app.goo.gl/2w9A7dghPr519Ajt9",
     "stampimageURL": "./images/shinkoro_stamp.png",
-    "imageURL": "./images/",
-    "audio": "./audio/guides/shinkoro.mp3"
+    "imageURL": "./images/"
   },
   {
     "id": "eirakukan",
@@ -780,8 +777,7 @@
     "address": "兵庫県豊岡市出石町下谷10−1",
     "mapLink": "https://maps.app.goo.gl/Yyz7b4TBi6fTyeH78",
     "stampimageURL": "./images/kato-hiroyuki_stamp.png",
-    "imageURL": "./images/katou-hiroyuki.HEIC",
-    "audio":"./audio/guides/katou-hiroyuki.mp3"
+    "imageURL": "./images/katou-hiroyuki.HEIC"
   },
   {
     "id": "mizunouta-koen",
@@ -800,8 +796,7 @@
     "address": "兵庫県豊岡市出石町伊木",
     "mapLink": "https://maps.app.goo.gl/JL4Db7piEr1EjEmR6",
     "stampimageURL": "./images/mizunoutakoen_stamp.png",
-    "imageURL": "./images/mizunoutakoen.HEIC",
-    "audio":"./audio/guides/mizunoutakoen.mp3"
+    "imageURL": "./images/mizunoutakoen.HEIC"
   },
   {
     "id": "odai-agata",
@@ -820,8 +815,7 @@
     "address": "兵庫県豊岡市小田井町１０−１４",
     "mapLink": "https://maps.app.goo.gl/z89skrpjJQNwFpok6",
     "stampimageURL": "./images/odai-agata_stamp.png",
-    "imageURL": "./images/odai-agata.HEIC",
-    "audio":"./audio/guides/odai-agata.mp3"
+    "imageURL": "./images/odai-agata.HEIC"
   },
   {
     "id": "kannabe-tei",
@@ -836,11 +830,30 @@
     "points": 3,
     "accessInfo": "北近畿豊岡自動車道・日高神鍋高原IC（出口を左折）→ 国道9号・宮越交差点右折→国道312号線→国道482号線→神鍋",
     "openingHours": "８月下旬～１１中旬　９：３０～１７：００",
-    "highlights": ["りんご狩り","ファミリー層に","おいしい"],
+    "highlights": ["りんご狩り","ファミリー向け","おいしい"],
     "address": "兵庫県豊岡市日高町太田８３０",
     "mapLink": "https://maps.app.goo.gl/RFEPVcivxfWWMc5B6",
     "stampimageURL": "./images/kannabe-tei_stamp.png",
-    "imageURL": "./images/kannabe-tei.HEIC",
-    "audio":"./audio/guides/kannabe-tei.mp3"
+    "imageURL": "./images/kannabe-tei.HEIC"
+  },
+  {
+    "id": "hiyoshi-jinja",
+    "name": "日吉神社",
+    "lat": 35.54159186799155,
+    "lng": 134.8159457368634,
+    "radius_m": 150,
+    "description": "日吉神社は、豊岡市にある神社で、境内には美しい自然と歴史を感じる場所があります。",
+    "detailedDescription": "日吉神社は、豊岡市にある神社で、境内の春の桜や秋の紅葉が見ごたえがあります。山を少し上った先にあります。",
+    "category": "history",
+    "region": "toyooka",
+    "points": 2,
+    "accessInfo": "JR豊岡駅より徒歩10分",
+    "openingHours": "８月下旬～１１中旬　９：３０～１７：００",
+    "highlights": ["神社","自然","歴史"],
+    "address": "兵庫県豊岡市山王町１０−２３",
+    "mapLink": "https://maps.app.goo.gl/zjes3BaMRuRCPyaX6",
+    "stampimageURL": "./images/hiyoshi-jinja_stamp.png",
+    "imageURL": "./images/hiyoshi-jinja.HEIC",
+    "audio":"./audio/guides/hiyoshi-jinja.mp3"
   }
 ]

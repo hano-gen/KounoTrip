@@ -1478,6 +1478,24 @@
             color: #92400e;
         }
 
+        .audio-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            background: #eff6ff;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1d4ed8;
+        }
+
+        .audio-badge svg {
+            width: 1rem;
+            height: 1rem;
+            color: #3b82f6;
+        }
+
         .course-detail-grid {
             display: grid;
             grid-template-columns: 1fr 200px;
