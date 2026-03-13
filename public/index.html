@@ -242,27 +242,6 @@
 
                 <!-- Stamp content will be populated by JavaScript -->
                 <div id="stamp-content"></div>
-                <!-- スタンプ取得時のアニメーション + ガイド音声モーダル -->
-                <div id="stamp-guide-modal" class="hidden" aria-hidden="true">
-                    <div class="modal-overlay" id="stamp-modal-overlay"></div>
-                    <div class="modal-card" id="stamp-modal-card" role="dialog" aria-modal="true" aria-labelledby="stamp-modal-title">
-                        <div class="modal-body">
-                            <div class="stamp-animation" id="stamp-animation">
-                                <div class="stamp-circle"></div>
-                                <div class="stamp-icon" id="stamp-modal-icon">📍</div>
-                            </div>
-                            <h3 id="stamp-modal-title" class="stamp-modal-title">スポット名</h3>
-                            <p id="stamp-modal-desc" class="stamp-modal-desc">スポットの説明がここに表示されます。</p>
-                        </div>
-                        <div class="modal-controls">
-                            <button id="stamp-modal-play-audio" class="btn btn-primary hidden"
-                                    onclick="app.playSpotAudioHandler(event, app._stampModalSpotId)">
-                                🔊 音声を再生
-                            </button>
-                            <button id="stamp-modal-close" class="btn">閉じる</button>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Courses View Screen -->
